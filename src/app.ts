@@ -6,7 +6,14 @@ import apiIndex from "./routes/index";
 export const buildApp = async () => {
   const fastify = Fastify();
 
-  await fastify.register(cors);
+  // Register CORS with options
+  await fastify.register(cors, {
+    origin: ["http://localhost:3000"], // allow your frontend URL
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true, // if you need cookies/auth headers
+  });
+
   await connectDB();
 
   fastify.register(apiIndex, { prefix: "/api" });

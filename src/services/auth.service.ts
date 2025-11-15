@@ -53,6 +53,9 @@ export const loginService = async (data: ILoginBody) => {
 // -----------------------------------------------------
 export const forgotPasswordService = async (data: IForgotPasswordBody) => {
   const { email, mobile, newPassword } = data;
+console.log(email);
+console.log(mobile);
+console.log(newPassword);
 
   const user = await User.findOne({ email, mobile });
   if (!user) throw new Error("User not found");
