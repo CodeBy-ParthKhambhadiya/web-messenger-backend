@@ -1,6 +1,9 @@
 import mongoose from "mongoose";
-import { ChatRoom, IChatRoom, IMessage } from "../models/chat.model";
-
+import { ChatRoom } from "../models/chat.model";
+import {
+  IChatRoom,
+  IMessage
+} from "../types/chat.types";
 export const createChatRoom = async (user1Id: string, user2Id: string): Promise<IChatRoom> => {
     const existingRoom = await ChatRoom.findOne({
         participants: { $all: [user1Id, user2Id] },

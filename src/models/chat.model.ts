@@ -1,22 +1,8 @@
 import mongoose, { Schema, Document, Types } from "mongoose";
-
-// Interface for a single message
-export interface IMessage {
-    _id?: string;
-    senderId: string;         // User ID of the sender
-    text: string;             // Message text
-    isRead: boolean;          // Read status
-    createdAt?: Date;         // Timestamp
-    updatedAt?: Date;         // Timestamp
-}
-
-// Interface for a chat room
-export interface IChatRoom extends Document {
-    participants: string[];   // Array of user IDs
-    messages: IMessage[];     // Messages in the room
-    createdAt?: Date;         // Timestamp
-    updatedAt?: Date;         // Timestamp
-}
+import {
+  IChatRoom,
+  IMessage
+} from "../types/chat.types";
 
 // Mongoose schema for messages
 const MessageSchema = new Schema<IMessage>(
