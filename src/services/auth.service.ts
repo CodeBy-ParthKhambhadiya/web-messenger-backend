@@ -29,9 +29,7 @@ export const registerService = async (data: IRegisterBody) => {
   return user;
 };
 
-// -----------------------------------------------------
-// Login Service
-// -----------------------------------------------------
+
 export const loginService = async (data: ILoginBody) => {
   const { email, password } = data;
 
