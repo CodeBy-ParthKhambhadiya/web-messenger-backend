@@ -30,3 +30,8 @@ export const resetUserPassword = async (
 
   return user;
 };
+
+export const getAllUsers = async () => {
+  const users = await User.find().select("-password"); // hide password
+  return users;
+};
